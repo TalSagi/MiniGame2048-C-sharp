@@ -31,7 +31,7 @@ namespace Physics
     PictureBox.BringToFront();
   }
 
-  public virtual void Move(int row, int column)
+  public void Reposition(int row, int column)
   {
     PictureBox.Location = new Point(12 + 56 * column, 73 + 56 * row);
   }
