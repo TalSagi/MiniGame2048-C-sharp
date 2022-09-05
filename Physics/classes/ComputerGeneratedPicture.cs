@@ -12,20 +12,6 @@ namespace Physics
 {
     public class ComputerGeneratedPicture : Picture
     {
-        public override int Value
-        {
-            get
-            {
-                return 2;
-            }
-        }
-  protected override Color BackColor
-  {
-    get
-    {
-        return Color.Yellow;
+        public ComputerGeneratedPicture(int row, int column) : base(2, row, column, Color.Yellow) { }
     }
-    }
-
-    public ComputerGeneratedPicture(int row, int column) : base(row, column) {}
 }

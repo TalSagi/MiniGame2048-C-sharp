@@ -27,3 +27,15 @@ C:\Users\recon\OneDrive\Documents\GitHub\MiniGame2048-C-\Physics\obj\Debug\Physi
 C:\Users\recon\OneDrive\Documents\GitHub\MiniGame2048-C-\Physics\obj\Debug\Physics.csproj.CopyComplete
 C:\Users\recon\OneDrive\Documents\GitHub\MiniGame2048-C-\Physics\obj\Debug\Physics.exe
 C:\Users\recon\OneDrive\Documents\GitHub\MiniGame2048-C-\Physics\obj\Debug\Physics.pdb
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\bin\Debug\Physics.exe.config
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\obj\Debug\Physics.exe
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\obj\Debug\Physics.pdb
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\bin\Debug\Physics.exe
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\bin\Debug\Physics.pdb
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\bin\Debug\Tao.FreeGlut.xml
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\bin\Debug\Tao.OpenGl.xml
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\bin\Debug\Tao.Platform.Windows.xml
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\obj\Debug\Physics.csprojResolveAssemblyReference.cache
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\obj\Debug\Physics.Form1.resources
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\obj\Debug\Physics.Properties.Resources.resources
+C:\Users\noa.m\Desktop\טל\עבודה\minigame2048-c-sharp\Physics\obj\Debug\Physics.csproj.GenerateResource.Cache

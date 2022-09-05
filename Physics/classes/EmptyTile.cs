@@ -11,13 +11,7 @@ using System.Windows.Forms;
 namespace Physics
 {
     public class EmptyTile : Tile
-    {
-        override protected abstract Color BackColor
-        {
-            get
-            {
-                return Color.Gray;
-            }
-        }
+    {     
+        public EmptyTile(int row, int column) : base(row, column, Color.Gray) { }
     }
 }

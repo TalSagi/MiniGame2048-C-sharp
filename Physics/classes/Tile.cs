@@ -16,14 +16,12 @@ namespace Physics
 
         public PictureBox PictureBox { get; private set; }
 
-        protected abstract Color BackColor {get;}
-
-  public Tile(int row, int column)
+  public Tile(int row, int column, Color backColor)
   {
     PictureBox = new PictureBox();
     PictureBox.Location = new Point(12 + 56 * column, 73 + 56 * row);
     PictureBox.Size = new Size(50, 50);
-    PictureBox.BackColor = BackColor;
+    PictureBox.BackColor = backColor;
   }
 
   public void BringToFront()

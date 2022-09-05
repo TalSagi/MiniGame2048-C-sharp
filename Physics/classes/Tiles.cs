@@ -26,31 +26,32 @@ public class Tiles
         }
     }
 
-    public Tiles(ControlCollection controls)
+    public Tiles(Control.ControlCollection controls)
     {
         _tiles = new Tile[4, 4];
         CreateEmptyTiles(controls);
         CreatePics(controls);
-        GenerateNewPic(controls);
+        AddComputerGeneratedPicture(controls);
     }
 
-        public void Remove(int row, int column, ControlCollection controls)
+        public void Remove(int row, int column, Control.ControlCollection controls)
     {
-        if (this[row, column] is Picture picture)
+            Picture picture = this[row, column] as Picture;
+        if (picture != null)
         {
             controls.Remove(picture.PictureBox);
             controls.Remove(picture.Label);
         }
     }
 
-    public void TurnEmpty(int row, int column, ControlCollection controls)
+    public void TurnEmpty(int row, int column, Control.ControlCollection controls)
     {
         Remove(row, column, controls);
 
         this[row, column] = new EmptyTile(row, column);
     }
 
-        public void AddComputerGeneratedPicture(ControlCollection controls)
+        public void AddComputerGeneratedPicture(Control.ControlCollection controls)
         {
             Random rnd = new Random();
             int a = rnd.Next(0, 4);
@@ -63,7 +64,7 @@ public class Tiles
             AddComputerGeneratedPicture(a,b, controls);
         }
 
-    public void AddComputerGeneratedPicture(int row, int column, ControlCollection controls)
+    public void AddComputerGeneratedPicture(int row, int column, Control.ControlCollection controls)
     {
         this[row, column] = new ComputerGeneratedPicture(row, column);
         controls.Add(this[row, column].PictureBox);
@@ -72,16 +73,17 @@ public class Tiles
 
     public void Move(int rowA, int columnA, int rowB, int columnB)
     {
-        this[rowA, columnA].Reposition(rowB, columnB);
         this[rowB, columnB] = this[rowA, columnA];
-        this[k, j - 1] = new EmptyTile();
+        this[rowB, columnB].Reposition(rowA, columnA);
+        this[rowA, columnA] = new EmptyTile(rowA, columnA);
     }
 
-    public int Merge(int rowA, int columnA, int rowB, int columnB, ControlCollection controls)
+    public int Merge(int rowA, int columnA, int rowB, int columnB, Control.ControlCollection controls)
     {
         int valueA = (this[rowA, columnA] as Picture).Value;
-        int valueB = (this[rowB, valueB] as Picture).Value;
+        int valueB = (this[rowB, columnB] as Picture).Value;
 
+            TurnEmpty(rowA, columnA, controls);
         Remove(rowB, columnB, controls);
         this[rowB, columnB] = new UserGeneratedPicture(valueA + valueB, rowB, columnB);
         controls.Add(this[rowB, columnB].PictureBox);
@@ -90,7 +92,7 @@ public class Tiles
         return valueA + valueB;
     }
 
-    private void CreateEmptyTiles(ControlCollection controls)
+    public void CreateEmptyTiles(Control.ControlCollection controls)
     {
         for(int i = 0; i < 4; i++)
             {
@@ -102,13 +104,13 @@ public class Tiles
             }
     }
 
-    private void CreatePics(ControlCollection controls)
+    private void CreatePics(Control.ControlCollection controls)
         {
-            AddComputerGeneratedPicture(0, 0);
-            AddComputerGeneratedPicture(0, 1);
+            AddComputerGeneratedPicture(0, 0, controls);
+            AddComputerGeneratedPicture(0, 1, controls);
         }
 
-        private bool IsEmptyTile(int row, int column)
+        public bool IsEmptyTile(int row, int column)
         {
             return this[row, column] is EmptyTile;
         }

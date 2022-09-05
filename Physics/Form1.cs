@@ -25,31 +25,32 @@ namespace Physics
             InitializeComponent();
             tiles = new Tiles(this.Controls);
             this.KeyDown += new KeyEventHandler(OnKeyboardPressed);
-        } 
+        }
 
-        private void OnKeyboardPressed(object sender,KeyEventArgs e)
+        private void OnKeyboardPressed(object sender, KeyEventArgs e)
         {
             bool ifPicWasMoved = false;
 
             switch (e.KeyCode.ToString())
             {
                 case "Right":
-                    for(int k = 0; k < 4; k++)
+                    for (int k = 0; k < 4; k++)
                     {
-                        for(int l = 2; l >= 0; l--)
+                        for (int l = 2; l >= 0; l--)
                         {
-                            if(!tiles.IsEmptyTile(k, l))
+                            if (!tiles.IsEmptyTile(k, l))
                             {
-                                for(int j = l + 1; j < 4; j++)
+                                for (int j = l + 1; j < 4; j++)
                                 {
-                                    if(tiles.IsEmptyTile(k, j))
+                                    if (tiles.IsEmptyTile(k, j))
                                     {
                                         ifPicWasMoved = true;
                                         tiles.Move(k, j - 1, k, j);
-                                    }else
+                                    }
+                                    else
                                     {
                                         int a = (tiles[k, j] as Picture).Value;
-                                        int b = (tiles[k, j-1] as Picture).Value;
+                                        int b = (tiles[k, j - 1] as Picture).Value;
                                         if (a == b)
                                         {
                                             ifPicWasMoved = true;
@@ -75,10 +76,11 @@ namespace Physics
                                     {
                                         ifPicWasMoved = true;
                                         tiles.Move(k, j + 1, k, j);
-                                    }else
+                                    }
+                                    else
                                     {
                                         int a = (tiles[k, j] as Picture).Value;
-                                        int b = (tiles[k, j+1] as Picture).Value;
+                                        int b = (tiles[k, j + 1] as Picture).Value;
                                         if (a == b)
                                         {
                                             ifPicWasMoved = true;
@@ -94,7 +96,7 @@ namespace Physics
                 case "Down":
                     for (int k = 2; k >= 0; k--)
                     {
-                        for (int l = 0; l <4; l++)
+                        for (int l = 0; l < 4; l++)
                         {
                             if (!tiles.IsEmptyTile(k, l))
                             {
@@ -104,10 +106,11 @@ namespace Physics
                                     {
                                         ifPicWasMoved = true;
                                         tiles.Move(j - 1, l, j, l);
-                                    }else
+                                    }
+                                    else
                                     {
                                         int a = (tiles[j, l] as Picture).Value;
-                                        int b = (tiles[j-1, l] as Picture).Value;
+                                        int b = (tiles[j - 1, l] as Picture).Value;
                                         if (a == b)
                                         {
                                             ifPicWasMoved = true;
@@ -127,16 +130,17 @@ namespace Physics
                         {
                             if (!tiles.IsEmptyTile(k, l))
                             {
-                                for (int j = k - 1; j >=0; j--)
+                                for (int j = k - 1; j >= 0; j--)
                                 {
                                     if (tiles.IsEmptyTile(j, l))
                                     {
                                         ifPicWasMoved = true;
                                         tiles.Move(j + 1, l, j, l);
-                                    }else
+                                    }
+                                    else
                                     {
                                         int a = (tiles[j, l] as Picture).Value;
-                                        int b = (tiles[j+1, l] as Picture).Value;
+                                        int b = (tiles[j + 1, l] as Picture).Value;
                                         if (a == b)
                                         {
                                             ifPicWasMoved = true;
@@ -151,6 +155,8 @@ namespace Physics
                     break;
             }
             if (ifPicWasMoved)
-                tiles.GenerateNewPic(this.Controls);
+                tiles.AddComputerGeneratedPicture(this.Controls);
+        }
     }
 }
+    

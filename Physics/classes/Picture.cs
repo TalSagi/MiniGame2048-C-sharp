@@ -13,17 +13,12 @@ namespace Physics
 public abstract class Picture : Tile
 {
   public Label Label {get; private set;}
-  public abstract int Value {get;}
-  protected virtual Color BackColor
-  {
-    get
-    {
-      return Color.Green;
-    }
-  }
+  public int Value { get; private set; }
 
-  public Picture(int row, int column) : base(row, column)
+  public Picture(int value, int row, int column, Color? backColor) : base(row, column, backColor ?? Color.Green)
   {
+            Value = value;
+
             Label = new Label();
             Label.Text = Value.ToString();
             Label.Size = new Size(50, 50);
@@ -32,6 +27,5 @@ public abstract class Picture : Tile
 
     PictureBox.Controls.Add(Label);
   }
-)
 }
 }
